@@ -1,16 +1,15 @@
-# Stage 1 - build
 FROM node:18 AS build
 
 WORKDIR /app
-COPY ./package.json ./package-lock.json ./
+COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
 
-# Stage 2 - run
-FROM node:18
+FROM nginx:alpine
 
-WORKDIR /app
-COPY --from=build /app ./
-RUN npm install -g serve
-CMD ["serve", "-s", "build", "-l", "3000"]
+COPY --from=build /app/build /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
