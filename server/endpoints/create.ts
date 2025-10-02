@@ -4,14 +4,13 @@ import pool from '../db/init';
 const router = Router();
 
 router.post('/', async (req, res) => {
-  const { title, description, status, due_date } = req.body;
-
+  const { title, description, status, dueDate } = req.body;
   try {
     const result = await pool.query(
       `INSERT INTO tasks (title, description, status, due_date)
        VALUES ($1, $2, $3, $4)
        RETURNING *`,
-      [title, description, status || 'pending', due_date]
+      [title, description, status || 'pending', dueDate]
     );
     res.status(201).json(result.rows[0]);
   } catch (err) {

@@ -3,11 +3,18 @@ import pool from '../db/init';
 
 const router = Router();
 
-// Get all tasks
+const mapTask = (row: any) => ({
+  id: row.id,
+  title: row.title,
+  description: row.description,
+  status: row.status,
+  dueDate: row.due_date,
+});
+
 router.get('/', async (_req, res) => {
   try {
     const result = await pool.query(`SELECT * FROM tasks ORDER BY id ASC`);
-    res.json(result.rows);
+    res.json(result.rows.map(mapTask));
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to fetch tasks' });
@@ -22,7 +29,7 @@ router.get('/:id', async (req, res) => {
     if (result.rows.length === 0) {
       return res.status(404).json({ error: 'Task not found' });
     }
-    res.json(result.rows[0]);
+    res.json(mapTask(result.rows[0]));
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Failed to fetch task' });

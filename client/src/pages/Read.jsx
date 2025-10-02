@@ -56,7 +56,7 @@ export default function Read() {
               key={task.id}
               className="p-4 border rounded-lg shadow-sm hover:bg-gray-50 flex justify-between items-center"
             >
-              <span>
+              <span onClick={() => navigate(`/task/${task.id}`)}>
                 {task.title} / {task.status} /{" "}
                 {task.dueDate
                   ? new Date(task.dueDate).toLocaleDateString()
