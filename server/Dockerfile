@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:22
 
 WORKDIR /app
 COPY ./package.json ./package-lock.json ./
@@ -7,4 +7,4 @@ COPY . .
 
 RUN npm run build
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]

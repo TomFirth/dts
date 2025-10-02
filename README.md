@@ -2,15 +2,23 @@
 
 ### Installation and run
 `$ cd /client && npm i && cd ../server && npm i && cd ../`
+
 Make sure Docker Desktop is running.
+
 [Download Docker Desktop](https://www.docker.com/products/docker-desktop/)
+
 `$ docker-compose up --build`
-The above should build the [front end](http://localhost:80) the [back end](http://localhost:5000) and the [database](http://localhost:5432)
+
+The above should build the [front end](http://localhost) the [back end](http://localhost:5000) and the [database](http://localhost:5432)
+
 
 ### Ports
-[Client](http://localhost:80) React/Typescript
+[Client](http://localhost) React/Typescript
+
 [Server](http://localhost:5000) Node/Typescript
+
 [DB](http://localhost:5432) Postgresql
+
 
 ### Additional
 There is a postman collection included, should you want to run some queries directly at the back end.

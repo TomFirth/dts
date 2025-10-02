@@ -31,7 +31,7 @@ export default function Create() {
       });
 
       if (res.ok) {
-        navigate("/tasks"); // ✅ go to tasks page after success
+        navigate("/tasks");
       } else {
         const msg = await res.text();
         setError(msg || "Failed to create task.");
@@ -101,7 +101,7 @@ export default function Create() {
           type="submit"
           className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
         >
-          Create Task
+          Submit
         </button>
       </form>
     </div>

@@ -7,7 +7,6 @@ services:
       - '80:80'
     depends_on:
       - backend
-    command: npm start
 
   backend:
     build:
