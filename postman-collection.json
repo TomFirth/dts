@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Tasks API",
+    "_postman_id": "abcd1234-5678-90ef-ghij-klmnopqrstuv",
+    "description": "A Postman collection for basic task CRUD API endpoints.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Buy groceries\",\n  \"description\": \"Milk, Eggs, Bread\",\n  \"status\": \"pending\",\n  \"due_date\": \"2025-08-01T18:00:00Z\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/create",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "tasks", "create"]
+        }
+      }
+    },
+    {
+      "name": "Read All Tasks",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/read",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "tasks", "read"]
+        }
+      }
+    },
+    {
+      "name": "Read Task by ID",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:5000/read/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "tasks", "read", "1"]
+        }
+      }
+    },
+    {
+      "name": "Update Task by ID",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Buy groceries (updated)\",\n  \"description\": \"Milk, Eggs, Bread, Butter\",\n  \"status\": \"in progress\",\n  \"due_date\": \"2025-08-02T12:00:00Z\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:5000/update/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "tasks", "update", "1"]
+        }
+      }
+    },
+    {
+      "name": "Delete Task by ID",
+      "request": {
+        "method": "DELETE",
+        "url": {
+          "raw": "http://localhost:5000/delete/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "5000",
+          "path": ["api", "tasks", "delete", "1"]
+        }
+      }
+    }
+  ]
+}
